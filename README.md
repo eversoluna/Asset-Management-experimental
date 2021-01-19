@@ -1,6 +1,6 @@
 # Asset-Management-experimental
 
-Asset-Management-experimental is a modular DeFi protocol built with Solidity and Hardhat. It integrates multiple DeFi primitives such as token management, rebalancing, risk management, and yield aggregation, with support for Aave and Compound protocols.
+This is a modular DeFi protocol built with Solidity and Hardhat, for experimental. It integrates multiple DeFi primitives such as token management, rebalancing, risk management, and yield aggregation, with support for Aave and Compound protocols.
 
 ## Features
 - **TokenManager**: Secure deposit and withdrawal of ERC20 tokens.
