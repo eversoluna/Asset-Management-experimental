@@ -14,8 +14,6 @@ import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 /// @notice Main protocol contract integrating multiple DeFi modules
 /// @dev Inherits TokenManager, Rebalancer, RiskManager, YieldAggregator, AaveIntegration, CompoundIntegration
 contract DeFiProtocol is TokenManager, Rebalancer, RiskManager, YieldAggregator, AaveIntegration, CompoundIntegration, ReentrancyGuard {
-
-
     /// @notice Emitted when a deposit is made
     /// @param user The address of the depositor
     /// @param amount The amount deposited
@@ -50,23 +48,30 @@ contract DeFiProtocol is TokenManager, Rebalancer, RiskManager, YieldAggregator,
 
     /// @notice Deposit tokens into the protocol
     /// @param amount The amount to deposit
-    function deposit(uint256 amount) external nonReentrant {
+    function deposit(uint256 amount)
+        public
+        override
+        nonReentrant
+    {
         require(amount > 0, "Deposit amount must be greater than zero");
-        uint256 prevBalance = balances(msg.sender);
+        uint256 prevBalance = balances[msg.sender];
         depositToken(amount);
-        uint256 newBalance = balances(msg.sender);
+        uint256 newBalance = balances[msg.sender];
         require(newBalance > prevBalance, "Deposit failed");
         emit Deposited(msg.sender, amount);
     }
 
-
     /// @notice Withdraw tokens from the protocol
     /// @param amount The amount to withdraw
-    function withdraw(uint256 amount) external nonReentrant {
+    function withdraw(uint256 amount)
+        public
+        override
+        nonReentrant
+    {
         require(amount > 0, "Withdraw amount must be greater than zero");
-        uint256 prevBalance = balances(msg.sender);
+        uint256 prevBalance = balances[msg.sender];
         withdrawToken(amount);
-        uint256 newBalance = balances(msg.sender);
+        uint256 newBalance = balances[msg.sender];
         require(newBalance < prevBalance, "Withdraw failed");
         emit Withdrawn(msg.sender, amount);
     }
