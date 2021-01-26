@@ -9,7 +9,7 @@ describe("DeFiProtocol", function () {
 
     // Deploy a mock ERC-20 token for testing
     const ERC20 = await ethers.getContractFactory("ERC20");
-    token = await ERC20.deploy("Test Token", "TTK");
+    token = await ERC20.deploy("Asset Manage Token", "AMT");
     await token.deployed();
 
     // Deploy mock Aave and Compound integrations
