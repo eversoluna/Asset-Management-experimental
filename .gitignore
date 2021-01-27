@@ -1,11 +1,12 @@
-node_modules
+# Ignore environment variable files
 .env
 # Hardhat artifacts and cache
 artifacts/
 cache/
 coverage/
 coverage.json
-# npm debug log
+# npm
+node_modules
 npm-debug.log*
 # OS-specific
 .DS_Store
