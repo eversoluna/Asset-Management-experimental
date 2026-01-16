@@ -25,5 +25,8 @@ This is a modular DeFi protocol built with Solidity and Hardhat, for experimenta
 - Uses OpenZeppelin contracts for security best practices
 - Includes reentrancy guards and access control
 
+## Contribution
+Any contribution would be welcome. Please open an issue or PR to contribute in this repo
+
 ## License
 MIT
